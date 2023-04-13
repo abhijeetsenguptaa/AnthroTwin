@@ -1,6 +1,7 @@
 const express = require('express');
 const { userRoute } = require('./route/users.route');
-const {connection} = require('./configs/connection')
+const {connection} = require('./configs/connection');
+const { productRoute } = require('./route/products.route');
 
 
 
@@ -16,7 +17,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/users',userRoute);
-
+app.use('/products',productRoute);
 
 
 
