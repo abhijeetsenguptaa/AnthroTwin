@@ -9,8 +9,9 @@ const productSchema = mongoose.Schema({
     price : Number,
     category : {
         type : String,
-        enum : ['Sweater','Pants','Top','swim-wears']
+        enum : ['Sweater','Pants','Top','swim-wears','Dresses']
     },
+    description : String,
     added_on : {
         type : Date,
         default : Date.now

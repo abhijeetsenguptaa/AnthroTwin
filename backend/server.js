@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { userRoute } = require('./route/users.route');
 const {connection} = require('./configs/connection');
 const { productRoute } = require('./route/products.route');
@@ -11,6 +12,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/',(req,res)=>{
     res.send('Welcome')
