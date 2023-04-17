@@ -1,6 +1,7 @@
 const myForm = document.getElementById("myForm");
 const title = document.getElementById("title");
 const image = document.getElementById("image");
+const image2 = document.getElementById("image2");
 const price = document.getElementById("price");
 const category = document.getElementById("category");
 const description = document.getElementById("description");
@@ -12,6 +13,7 @@ myForm.addEventListener("submit", (e) => {
   let obj = {
     title: title.value,
     image: image.value,
+    image2: image.value,
     price: price.value,
     category: category.value,
     description: description.value,
@@ -27,6 +29,7 @@ myForm.addEventListener("submit", (e) => {
 
   title.value = "" ;
   image.value = "" ;
+  image2.value = "" ;
   price.value = "" ;
   category.value = "" ;
   description.value = "" ;

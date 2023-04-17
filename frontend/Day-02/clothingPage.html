@@ -899,6 +899,12 @@
             let card = document.createElement("div");
             card.setAttribute("class", "card");
             let image = document.createElement("img");
+            image.addEventListener("mouseover",()=>{
+                image.setAttribute("src",element.image2);
+            })
+            image.addEventListener("mouseout",()=>{
+                image.setAttribute("src",element.image);
+            })
             image.setAttribute("src", element.image);
             image.style.width = "220px";
             let title = document.createElement("p");
