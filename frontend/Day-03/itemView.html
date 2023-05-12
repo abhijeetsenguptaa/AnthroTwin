@@ -862,7 +862,16 @@
 </body>
 <script>
     let mainContainer = document.getElementById("mainContainer")
-    let viewPost = JSON.parse(localStorage.getItem("viewItem"))
+    let bucket = [];
+
+    fetch(`http://localhost:8080/products/search/${localStorage.getItem('idOfItem')}`)
+     .then((res)=>{
+        return res.json()
+     })
+     .then((data)=>{
+        bucket = data ;
+        showData(data)
+     })
 
     function showData(data) {
         data.forEach((element, index) => {
@@ -880,9 +889,30 @@
             let category = document.createElement("p");
             category.innerText = element.category;
             let price = document.createElement("p");
-            price.innerText = "$ " + element.price;
-            // let description = document.createElement("h3");
-            // description.innerText = element.description;
+            price.innerText = "Price :" +" $ " + element.price;
+            let chooseColor = document.createElement('select');
+            let chooseColorOption = document.createElement('option');
+            chooseColorOption.value = '';
+            chooseColorOption.textContent = 'Choose your color';
+            let redOption = document.createElement('option');
+            redOption.value = 'red';
+            redOption.textContent = 'Red';
+            let yellowOption = document.createElement('option');
+            yellowOption.value = 'yellow';
+            yellowOption.textContent = 'Yellow';
+
+            let chooseSize = document.createElement('select');
+            let chooseSizeOption = document.createElement('option');
+            chooseSizeOption.textContent = "Choose your size";
+            let small = document.createElement('option');
+            small.textContent = "Small"
+            small.value = "S"
+            let medium = document.createElement('option');
+            medium.textContent = "Medium"
+            medium.value = "M"
+            let large = document.createElement('option');
+            large.textContent = "Large"
+            large.value = "L"
             let rightDiv = document.createElement("div");
             rightDiv.setAttribute("id", "rightDiv");
             let rightHead = document.createElement("h2");
@@ -909,22 +939,39 @@
             addToCart.innerText = "ADD TO BASKET"
 
             addToCart.addEventListener("click", () => {
-                bucketList(element);
+
+                let obj = {
+                    image : element.image,
+                    title : element.title,
+                    category : element.category,
+                    price : element.price,
+                    color : chooseColor.value,
+                    size : chooseSize.value
+                }
+
+                fetch('http://localhost:8080/bucket',{
+                    method:'POST',
+                    headers:{
+                        "Content-type":"application/json",
+                        "Authorization" : localStorage.getItem('token')
+                    },
+                    body: JSON.stringify(obj)
+                })
+                 .then((res)=>{
+                    return res.json();
+                 })
+                 .then((data)=>{
+                    alert(data.msg)
+                 })
             })
-            details.append(title,  category, price, addToCart)
+            chooseSize.append(chooseSizeOption,small,medium,large);
+            chooseColor.append(chooseColorOption,redOption,yellowOption);
+            details.append(title,  category, price, chooseColor,chooseSize, addToCart)
             rightDiv.append(rightHead, img1, img2, img3, img4, img5)
             template.append(image, details, rightDiv);
             mainContainer.append(template);
         })
     }
-    function bucketList(element) {
-        let cartCounter = document.getElementById("cartCounter")
-        let cartItems = JSON.parse(localStorage.getItem("cart-list")) || [];
-        cartItems.push(element);
-        localStorage.setItem("cart-list", JSON.stringify(cartItems))
-        cartCounter.innerText = cartItems.length;
-    }
-    showData(viewPost);
 </script>
 
 </html>

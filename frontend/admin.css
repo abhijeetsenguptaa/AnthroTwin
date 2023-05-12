@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#mainBox{
+    height: 100vh;
+}
+
+#leftNav{
+    width: 20%;
+    border: 1px solid black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: ;
+    color: white;
+    height: 100vh;
+    background-color: blue;
+}
+
+.nav-items{
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    font-size: 20px;
+}

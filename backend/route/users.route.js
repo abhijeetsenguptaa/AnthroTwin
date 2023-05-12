@@ -2,8 +2,19 @@ const express = require('express');
 const { UserModel } = require('../model/user.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { authentication } = require('../middleware/authentication.middleware');
+const { MoreUserDetails } = require('../model/userDetails.model');
 
 const userRoute = express.Router();
+
+userRoute.get('/',authentication,async(req,res)=>{
+    try{
+        const data = await UserModel.find({role:'Customer'});
+        res.send(data);
+    }catch{
+        res.send(err);
+    }
+})
 
 
 userRoute.post('/register',async(req,res)=>{
@@ -46,7 +57,10 @@ userRoute.post('/login',async(req,res)=>{
                     const token = jwt.sign({user_email:data[0].email},process.env.secret_key,{expiresIn:'1hr'});
                     res.status(200).json({
                         'msg':'Login Successful',
-                        'token':token
+                        'token':token,
+                        'name':data[0].name,
+                        'role':data[0].role,
+                        'email':data[0].email
                     })
                 }else{
                     res.status(400).json({
@@ -61,6 +75,21 @@ userRoute.post('/login',async(req,res)=>{
         }
     }catch(err){
         res.status(200).json({
+            'msg':'Something went Wrong!'
+        })
+    }
+})
+
+userRoute.post('/more',authentication,async(req,res)=>{
+    const data = req.body;
+    try{
+        const moreDetails = new MoreUserDetails(data);
+        await moreDetails.save()
+        res.status(200).send({
+            'msg':'More details added!'
+        })
+    }catch(err){
+        res.status(404).send({
             'msg':'Something went Wrong!'
         })
     }
