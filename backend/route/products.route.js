@@ -1,5 +1,7 @@
 const express = require('express');
 const { ProductModel } = require('../model/products.model');
+const { authentication } = require('../middleware/authentication.middleware');
+const { Purchased } = require('../model/purchasedItem.model');
 
 
 
@@ -11,9 +13,9 @@ const productRoute = express.Router();
 
 
 productRoute.post('/',async(req,res)=>{
-    const {title,image,price,category,added_on}=req.body;
+    const {title,image,image2,price,category,description,added_on}=req.body;
     try{
-        const data = new ProductModel({title,image,price,category,added_on});
+        const data = new ProductModel({title,image,image2,price,category,description,added_on});
         const item = await data.save();
         res.status(200).send(item);
     }catch(err){
@@ -21,6 +23,21 @@ productRoute.post('/',async(req,res)=>{
     }
 })
 
+
+productRoute.post('/purchase',authentication,async(req,res)=>{
+    const data = req.body;
+    try{
+        const purchased_item = new Purchased(data);
+        await purchased_item.save();
+        res.send({
+            'msg':'Item successfully Purchased'
+        })
+    }catch(err){
+        res.status(404).send({
+            'msg':'Something went Wrong!'
+        })
+    }
+})
 
 productRoute.get('/search/:id',async(req,res)=>{
     try{

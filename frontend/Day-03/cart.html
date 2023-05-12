@@ -16,15 +16,7 @@
         body {
             width: 1200px;
             margin: auto;
-        }
-
-        #newCollection {
-            display: flex;
-            gap: 20px;
-            font-size: 10px;
-            justify-content: center;
-            background-color: rgba(205, 84, 104, 0.694);
-            color: white;
+            font-family: poppins;
         }
 
         #sign>h2 {
@@ -109,28 +101,6 @@
             background-color: white;
         }
 
-        #mainBody {
-            display: grid;
-            grid-template-columns: repeat(2, 200px);
-            font-family: Poppins;
-        }
-
-        #pic {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            padding: 20px;
-        }
-
-        #browseBy {
-            padding: 10px;
-        }
-
-        #browseBy>ul>li {
-            margin-left: -30px;
-            font-size: 10px;
-            line-height: 25px;
-        }
-
         #signup {
             display: flex;
             justify-content: space-between;
@@ -168,33 +138,78 @@
             margin-left: 20px;
         }
 
-        #products {
-            display: grid;
-            grid-template-columns: repeat(4, 222px);
-            gap: 30px;
+        #basket {
+            width: 700px;
+            padding: 0px 40px 40px 40px;
+            margin-top: -14px;
         }
 
-        a {
-            text-decoration: none;
+        #headBasket {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid rgb(204, 203, 203);
         }
 
-        #rightDiv {
+        th {
+            border-bottom: 1px solid rgb(204, 203, 203);
+            padding: 20px;
+        }
+
+        .tData {
+            border-bottom: 1px solid rgb(204, 203, 203);
+            padding: 20px;
+        }
+
+        #tDelete {
+            padding: 10px;
+            width: 120px;
+            letter-spacing: 1px;
+            border: none;
+            margin-left: 30px;
+            color: white;
+            background-color: rgb(240, 89, 89);
+        }
+        #tDelete:hover{
+            cursor: pointer;
+            border:1px solid black;
+            background-color: white;
+            color: black;
+        }
+        #data {
+            display: flex;
+        }
+
+        #orderSummary {
+            margin-top: -10px;
             margin-left: 20px;
         }
 
-        .card:hover {
-            cursor: pointer;
-            color: rgb(1, 81, 1);
-            font-weight: bolder;
+        #box {
+            border: 1px solid rgb(204, 203, 203);
+            width: 300px;
+            padding: 40px;
         }
 
-        #header2 {
+        #checkOut {
+            width: 300px;
+            padding: 15px;
+            font-size: 15px;
+            color: white;
+            background-color: rgb(64, 79, 97);
+            border: none;
+            letter-spacing: 2px;
+        }
+        .bill{
             display: flex;
             justify-content: space-between;
-            width: 970px;
-            margin-bottom: 20px
+            width: 290px;
         }
-
+        #checkOut:hover {
+            color: black;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
         .navBarPro {
             position: absolute;
             background-color: white;
@@ -207,7 +222,6 @@
             line-height: 30px;
             border: 1px solid rgb(204, 203, 203);
         }
-
         .navSale:hover .navBarPro {
             display: block;
             color: black;
@@ -216,18 +230,13 @@
 </head>
 
 <body>
-    <div id="newCollection">
-        <h2>celebrate more. sparkle with joy. reflect often.</h2>
-        <h2>NEW YEAR'S RESOLUTION</h2>
-        <h2><a href="../Day-03/clothingPage.html">shop the new new collection</a></h2>
-    </div>
     <div id="sticky">
         <div id="header">
             <div id="brand">
                 <h2>.FASHIONISTA.</h2>
             </div>
             <div id="search">
-                <input type="text" id="searchBar" placeholder="Search Fashionista" oninput="search()">
+                <input type="text" id="searchBar" placeholder="Search Fashionista">
                 <i class="material-icons"><a href="../Day-03/cart.html">shopping_bag</a></i>
             </div>
         </div>
@@ -237,9 +246,7 @@
                     <div class="navBarPro" style="width:1180px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Explore All Gifts</li>
@@ -264,17 +271,13 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Gifts by Price</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Gifts by Price</h4>
                                 <ul type="none">
                                     <li>Gifts Under $75</li>
                                 </ul>
                             </div>
                             <div>
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>The Pet Shop</li>
                                     <li>The Games Shop</li>
@@ -290,9 +293,7 @@
                     <div class="navBarPro" style="width:700px;right:450px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div>
                                     <ul type="none">
                                         <li>Accessories</li>
@@ -309,9 +310,7 @@
                                 </div>
                             </div>
                             <div style="padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>New Today: Clothing & Accessories</li>
                                     <li>Trending: Metallic & Shine</li>
@@ -328,9 +327,7 @@
                     <div class="navBarPro" style="width:700px;right:400px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Shop All Dresses</li>
@@ -352,9 +349,7 @@
                                 </div>
                             </div>
                             <div style="padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured Shops</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured Shops</h4>
                                 <ul type="none">
                                     <li>Velvet Dresses</li>
                                     <li>Trending: Tulle</li>
@@ -369,9 +364,7 @@
                     <div class="navBarPro" style="width:1000px;right:100px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Shop All Clothing</li>
@@ -402,9 +395,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>The Holiday Party Shop</li>
                                     <li>Trending: Metallic & Shine</li>
@@ -415,9 +406,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Explore Sweaters</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Explore Sweaters</h4>
                                 <ul type="none">
                                     <li>Pullover Sweaters</li>
                                     <li>Cardigans</li>
@@ -436,9 +425,7 @@
                     <div class="navBarPro" style="width:1100px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Shop All Shoe</li>
@@ -459,9 +446,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>Embellished Shoes</li>
                                     <li>Legwear & Shoe Paintings</li>
@@ -470,9 +455,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Brands We Love</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Brands We Love</h4>
                                 <ul type="none">
                                     <li>ON</li>
                                     <li>Bibi Lou</li>
@@ -489,9 +472,7 @@
                     <div class="navBarPro" style="width:1100px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Shop All Accessories</li>
@@ -513,9 +494,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Explore Jewelry</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Explore Jewelry</h4>
                                 <ul type="none">
                                     <li>Necklaces</li>
                                     <li>Earrings</li>
@@ -527,9 +506,7 @@
                                 </ul>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>Top 25 Must-Have Jewelry Gifts</li>
                                     <li>The One- Size Gift Shop</li>
@@ -546,9 +523,7 @@
                     <div class="navBarPro" style="width:1100px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Explore All BHLDN Weddings</li>
@@ -572,9 +547,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <ul type="none">
                                     <li>Exclusive: BHLDN by Carly Cushine</li>
                                     <li>New Spring Gowns</li>
@@ -584,9 +557,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Bridal by Style</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Bridal by Style</h4>
                                 <ul type="none">
                                     <li>Modern Bride</li>
                                     <li>Bohemian Bride</li>
@@ -603,9 +574,7 @@
                     <div class="navBarPro" style="width:1100px;">
                         <div style="display: flex">
                             <div style="border-right: 1px solid rgb(204, 203, 203);padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4  style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Explore All Home & Furniture New!</li>
@@ -628,9 +597,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Exclusively For Anthro: Arist Collaborations</h4>
+                                <h4  style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Exclusively For Anthro: Arist Collaborations</h4>
                                 <ul type="none">
                                     <li>The George & Viv Holiday Shop</li>
                                     <li>Matilda Goad & Co.</li>
@@ -642,9 +609,7 @@
                                 </ul>
                             </div>
                             <div style="padding-right:40px">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    AnthroLiving House Tours</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">AnthroLiving House Tours</h4>
                                 <ul type="none">
                                     <li>Less is More</li>
                                     <li>House of Hackney</li>
@@ -665,9 +630,7 @@
                     <div class="navBarPro" style="width:1000px">
                         <div style="display: flex;">
                             <div style="border-right: 1px solid rgb(204, 203, 203);">
-                                <h4
-                                    style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Shop by Category</h4>
+                                <h4 style="margin-left: 40px;margin-right: 40px;border-bottom: 1px solid rgb(204,203,203);">Shop by Category</h4>
                                 <div style="display: flex;">
                                     <ul type="none">
                                         <li>Shop All Beauty & Wellness</li>
@@ -692,9 +655,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204, 203, 203);">
-                                <h4
-                                    style="margin-right: 40px;margin-left: 40px;border-bottom: 1px solid rgb(204,203,203);">
-                                    Featured</h4>
+                                <h4 style="margin-right: 40px;margin-left: 40px;border-bottom: 1px solid rgb(204,203,203);">Featured</h4>
                                 <div>
                                     <ul type="none">
                                         <li>The George & Viv Holiday Shop</li>
@@ -706,8 +667,7 @@
                                 </div>
                             </div>
                             <div style="border-right: 1px solid rgb(204,203,203);padding-right:100px;">
-                                <h4 style="margin-left: 40px;border-bottom: 1px solid rgb(204,203,203);">Brand We Love
-                                </h4>
+                                <h4 style="margin-left: 40px;border-bottom: 1px solid rgb(204,203,203);">Brand We Love</h4>
                                 <div>
                                     <ul type="none">
                                         <li>Anastasia Beverly Hills</li>
@@ -786,44 +746,56 @@
             </div>
         </div>
     </div>
-    <div id="mainBody">
-        <div id="browseBy">
-            <h2 style="margin-left:8px;border-bottom:1px solid rgb(204, 203, 203);font-size:14px;padding-bottom:5px">
-                Browse by:</h2>
-            <ul type="none" style="margin-top:-10px">
-                <li><a href="../Day-05/new.html">New!</a></li>
-                <li><a href="../Day-05/newToday.html">New Today</a></li>
-                <li><a href="../Day-05/newThisWeek.html"> New This Week</a></li>
-                <li><a href="../Day-05/dresses.html"> Dresses</a></li>
-                <li>Jackets</li>
-                <li>Jeans</li>
-                <li>Jumpsuits</li>
-                <li>Lounge & ActiveWear</li>
-                <li>Pants</li>
-                <li>Petites</li>
-                <li>Plus</li>
-                <li>Shorts</li>
-                <li>Skirts</li>
-                <li>Sleepwear & Intimates</li>
-                <li>Sweaters</li>
-                <li>Swimwear</li>
-                <li>Tops</li>
-            </ul>
-        </div>
-        <div id="rightDiv">
-            <div id="header2">
-                <p>Dresses</p>
-                <select id="sortList" onchange="sortBy()">
-                    <option value="">Featured</option>
-                    <option value="L2H">Price:Low to High</option>
-                    <option value="H2L">Price:High to Low</option>
-                </select>
+    <div id="container">
+        <div id="data">
+            <div id="basket">
+                <div id="headBasket">
+                    <h1 style="font-weight: lighter;font-size:24px">Basket</h1>
+                    <p>Delivery Options</p>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Picture</th>
+                            <th>Item</th>
+                            <th>Item Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="items">
+                        <!-- Append data from js -->
+                    </tbody>
+                </table>
             </div>
-            <a href="../Day-03/itemView.html">
-            <div id="products">
-                <!-- Append Data from Javascript -->
+            <div id="orderSummary">
+                <h1 style="font-weight: lighter;font-size:22px">Order Summary</h1>
+                <div id="box">
+                    <div class="bill">
+                        <p>Subtotal</p>
+                        <p>$<span id="totalAmount">00</span></p>
+                    </div>
+                    <div class="bill">
+                        <p>Shipping</p>
+                        <p>TBD</p>
+                    </div>
+                    <div class="bill">
+                        <p>Estimated Tax</p>
+                        <p>$0.00</p>
+                    </div>
+                    <div class="bill">
+                        <p>Total</p>
+                        <p>$<span id="total">00</span></p>
+                    </div>
+                    <p>Or 4 interest-free installments of $<span id="installment">00.00</span> with <b>Klarna</b> or
+                        <b>afterpay</b></p>
+                    <a href="../Day-03/checkoutPage.html"><button id="checkOut">PROCEED TO CHECKOUT</button></a>
+                    <hr>
+                    <div style="display: flex;justify-content:space-between">
+                        <h2>PROMO CODE</h2>
+                        <h2>+</h2>
+                    </div>
+                </div>
             </div>
-            </a>
         </div>
     </div>
     <div id="signup">
@@ -859,7 +831,7 @@
             <li>
                 <h2>About Us</h2>
             </li>
-            <li>Our Story</li>
+            <li><a href="../Day-04/ourStory.html">Our Story</a></li>
             <li>Events</li>
             <li>A Greater Good</li>
             <li>Diversity & Inclusion</li>
@@ -906,73 +878,75 @@
     <img src="https://images.ctfassets.net/5de70he6op10/20YS44uySymKclIPOMOZvO/0fc2386095b3f07b3e9e584882d865a3/Holiday22_SiteFooter_SMS_SignUp_LS.jpg"
         width="1200px">
 </body>
-<script type="text/javascript">
-    let products = document.getElementById("products");
-    let myNeededData = [];
+<script>
+    let container = document.getElementById("container");
+    let basket = document.getElementById("basket");
+    let totalAmount = document.getElementById("totalAmount")
+    let total = document.getElementById("total")
+    let tbody = document.getElementById("items");
+    let installment = document.getElementById("installment");
+    let sum = 0;
+    let sum1 = 0;
 
 
-    fetch("http://localhost:8080/products")
-        .then((responseData) => {
-            return responseData.json();
-        })
-        .then((actualData) => {
-            myNeededData = actualData
-            fashionIsta(myNeededData);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-
-    function search() {
-        let searchBar = document.getElementById("searchBar").value;
-        let searchData = myNeededData.filter((elem) => {
-            return elem.title.toLowerCase().includes(searchBar.toLowerCase());
-        })
-        products.innerHTML = null;
-        fashionIsta(searchData);
-    }
-
-    function sortBy() {
-        let sortedData = document.getElementById("sortList").value;
-        if (sortedData == "L2H") {
-            myNeededData.sort((a, b) => a.price - b.price)
+    fetch(`http://localhost:8080/bucket/?email=${localStorage.getItem('email')}`,{
+        method : 'GET',
+        headers: {
+            "Content-type":"application/json",
+            "Authorization":localStorage.getItem('token')
         }
-        if (sortedData == "H2L") {
-            myNeededData.sort((a, b) => b.price - a.price)
-        }
-        products.innerHTML = null;
-        fashionIsta(myNeededData)
-    }
-
-    function fashionIsta(data) {
+    })
+    .then((res)=>{
+        return res.json()
+    })
+    .then((data)=>{
+        basketList(data);
+    })
+    function basketList(data) {
+        tbody.innerHTML = null;
         data.forEach((element, index) => {
-            let card = document.createElement("div");
-            card.setAttribute("class", "card");
+            let tr = document.createElement("tr");
+            tr.setAttribute("class", "rows")
             let image = document.createElement("img");
-            image.addEventListener("mouseover", () => {
-                image.setAttribute("src", element.image2);
-            })
-            image.addEventListener("mouseout", () => {
-                image.setAttribute("src", element.image);
-            })
             image.setAttribute("src", element.image);
-            image.style.width = "220px";
-            let title = document.createElement("p");
+            image.style.width = "100px"
+            let title = document.createElement("td");
             title.innerText = element.title;
-            title.style.fontSize = "12px"
-            title.style.marginTop = "-2px"
-            let price = document.createElement("p");
+            title.setAttribute("class", "tData");
+            let price = document.createElement("td");
             price.innerText = "$ " + element.price;
-            price.style.marginTop = "-2px"
+            price.style.width = "100px"
+            price.style.textAlign = "center"
+            totalAmount.innerText = sum += +(element.price)
+            total.innerText = sum1 += +(element.price)
+            installment.innerText = sum/4;
+            price.setAttribute("class", "tData");
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "REMOVE"
+            deleteBtn.setAttribute("id", "tDelete");
 
-            card.addEventListener('click',()=>{
-                localStorage.setItem('idOfItem',element._id)
+            deleteBtn.addEventListener("click",()=>{
+                fetch(`http://localhost:8080/bucket/delete/${element._id}/?email=${localStorage.getItem('email')}`,{
+                    method:'DELETE',
+                    headers:{
+                        "Content-type":"application/json",
+                        "Authorization":localStorage.getItem('token')
+                    }
+                })
+                .then((res)=>{
+                    return res.json();
+                })
+                .then((data)=>{
+                    basketList(data);
+                })
             })
-            card.append(image, title, price);
-            products.append(card);
+
+            localStorage.setItem('sum',sum);
+            tr.append(image, title, price, deleteBtn);
+            tbody.append(tr);
+
         })
     }
-
 </script>
 
 </html>

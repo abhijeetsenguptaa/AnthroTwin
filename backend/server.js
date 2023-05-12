@@ -3,6 +3,7 @@ const cors = require('cors');
 const { userRoute } = require('./route/users.route');
 const {connection} = require('./configs/connection');
 const { productRoute } = require('./route/products.route');
+const { bucketRoute } = require('./route/bucket.route');
 
 
 
@@ -20,6 +21,7 @@ app.get('/',(req,res)=>{
 
 app.use('/users',userRoute);
 app.use('/products',productRoute);
+app.use('/bucket',bucketRoute);
 
 
 
